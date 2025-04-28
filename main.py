@@ -39,20 +39,23 @@ model.fit(X_train_features, Y_train)
 prediction_on_traing_data = model.predict(X_train_features)
 accuracy_on_training_data = accuracy_score(Y_train, prediction_on_traing_data)
 
-print("Accuracy on training data : ", accuracy_on_training_data) #0.97
+# print("Accuracy on training data : ", accuracy_on_training_data) #0.97
 
 prediction_on_test_data = model.predict(X_test_features)
 accuracy_on_test_data = accuracy_score(Y_test, prediction_on_test_data)
 
-print("Accuracy on test data : ", accuracy_on_test_data) 
+# print("Accuracy on test data : ", accuracy_on_test_data) 
+
 
 input_your_mail = ["Congratulations! You've won a $1000 Walmart gift card. Click here to claim your prize now: http://bit.ly/spamlink"]
-input_your_mail2 = ["Hi John, just wanted to check if we're still meeting for lunch tomorrow. Let me know what time works best for you."]
+input_your_mail2 =["Hi John, just wanted to check if we're still meeting for lunch tomorrow. Let me know what time works best for you."]
+
+
 
 input_data_features = feature_extraction.transform(input_your_mail)
 input_data_features2 = feature_extraction.transform(input_your_mail2)
 
 prediction = model.predict(input_data_features)
 prediction2 = model.predict(input_data_features2)
-print("Prediction 1",prediction)
-print("Prediction 2",prediction2)
+print("Prediction 1:", "spam" if prediction == 0 else "Not spam")
+print("Prediction 2:", "spam" if prediction2 == 0 else "Not spam")
